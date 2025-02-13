@@ -8,7 +8,7 @@ public class Slime_Movement : MonoBehaviour
     private CharacterController cc;
     private Rigidbody rb;
     [SerializeField]
-    private float moveSpeed = 1f;
+    private float moveSpeed = 10f;
     [SerializeField]
     private float rotationSpeed = 10f;
     [SerializeField]
@@ -22,25 +22,30 @@ public class Slime_Movement : MonoBehaviour
     {
         cc = GetComponent<CharacterController>();
         rb = GetComponent<Rigidbody>();
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
         cameraTransform = Camera.main.transform;
     }
-    
-    void Update()
+
+    private void Update()
+    {
+        SlimeJump();
+    }
+
+    void FixedUpdate()
     {
         SlimeMove();
-        SlimeJump();
     }
 
     private void SlimeMove()
     {
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
-
+        
         Vector3 dir = (cameraTransform.forward * v + cameraTransform.right * h).normalized;
         dir.y = 0;
         
-        rb.AddForce(dir * moveSpeed, ForceMode.Impulse);
+        rb.linearVelocity = dir * moveSpeed;
+        
 
         if (dir != Vector3.zero)
         {
@@ -63,7 +68,6 @@ public class Slime_Movement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            
         }
     }
 
