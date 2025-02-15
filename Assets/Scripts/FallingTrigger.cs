@@ -5,20 +5,22 @@ public class FallingTrigger : MonoBehaviour
 {
     public GameObject[] FloorObjects;
     public GameObject playerObject;
-    public CharacterController playerCC;
-    public float bounceDuration = 1.0f;
+    //public CharacterController playerCC;
+    private Slime_Movement _slimeMovement;
+    public float duration = 1.0f;
     public Transform target;
-
+    public OpeningFloor _openingFloor;
     public void Start()
     {
-        playerCC = playerObject.GetComponent<CharacterController>();
+        //playerCC = playerObject.GetComponent<CharacterController>();
+        _slimeMovement = playerObject.GetComponent<Slime_Movement>();
     }
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            DeactivateFloorOjbects();
-            MoveWithBounce();
+            _openingFloor.OpenFloorMove();
+            MoveToTarget();
         }
         
 
@@ -41,22 +43,15 @@ public class FallingTrigger : MonoBehaviour
         }
     }
 
-    private void MoveWithBounce()
+    private void MoveToTarget()
     {
         Debug.Log("MovieWithBounce()");
         
         Vector3 startPosition = playerObject.transform.position;
         Vector3 targetPosition = target.position;
 
-        /*
-        playerObject.transform.DOKill();
-        playerObject.transform.DOMove(target.position, bounceDuration)
-            .SetEase(Ease.OutBounce); // 바운스 효과 적용
-            */
-        DOTween.To(() => startPosition, x =>
-        {
-            Vector3 move = x - playerObject.transform.position;
-            playerCC.Move(move); // CharacterController로 이동 적용
-        }, targetPosition, bounceDuration).SetEase(Ease.OutQuad);
+       
+        playerObject.transform.DOMove(target.transform.position, duration)
+            .SetEase(Ease.InOutQuad);
     }
 }

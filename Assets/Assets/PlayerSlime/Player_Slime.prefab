@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 6891471312092436319}
   m_Layer: 0
   m_Name: Player_Slime
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,7 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   rotationSpeed: 10
-  jumpForce: 50
+  jumpForce: 15
   isGrounded: 0
 --- !u!1001 &8637903222355367364
 PrefabInstance:
