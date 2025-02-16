@@ -13,6 +13,8 @@ public class Slime_Movement : MonoBehaviour
     private float rotationSpeed = 10f;
     [SerializeField]
     private float jumpForce = 5f;
+    [SerializeField] 
+    private float fallForce = 2f;
     [SerializeField]
     private bool isGrounded;
     private Transform cameraTransform;
@@ -34,6 +36,8 @@ public class Slime_Movement : MonoBehaviour
     void FixedUpdate()
     {
         SlimeMove();
+        
+        SlimeFall();
     }
 
     private void SlimeMove()
@@ -68,6 +72,16 @@ public class Slime_Movement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            animator.SetTrigger("IsJumping");
+        }
+    }
+
+    private void SlimeFall()
+    {
+        if (rb.linearVelocity.y <= 0)
+        {
+            rb.AddForce(Vector3.down * fallForce, ForceMode.Acceleration);
+            
         }
     }
 
