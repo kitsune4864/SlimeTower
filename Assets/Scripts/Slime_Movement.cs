@@ -15,6 +15,10 @@ public class Slime_Movement : MonoBehaviour
     private float jumpForce = 5f;
     [SerializeField] 
     private float fallForce = 2f;
+    [SerializeField] 
+    private int maxJumpForce = 200;
+    [SerializeField]
+    private float chargeJumpForce;
     [SerializeField]
     private bool isGrounded;
     private Transform cameraTransform;
@@ -69,9 +73,20 @@ public class Slime_Movement : MonoBehaviour
 
     private void SlimeJump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (Input.GetKey(KeyCode.Space) && isGrounded)
+        {
+            if (jumpForce < maxJumpForce)
+            {
+                jumpForce += 10 * Time.deltaTime;
+            }
+            animator.SetBool("IsReady", true);
+        }
+        if (Input.GetKeyUp(KeyCode.Space) && isGrounded)
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            jumpForce = 100;
+            
+            animator.SetBool("IsReady", false);
             animator.SetTrigger("IsJumping");
         }
     }
@@ -81,7 +96,6 @@ public class Slime_Movement : MonoBehaviour
         if (rb.linearVelocity.y <= 0)
         {
             rb.AddForce(Vector3.down * fallForce, ForceMode.Acceleration);
-            
         }
     }
 
