@@ -48,9 +48,9 @@ public class Slime_Movement : MonoBehaviour
     {
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
-        
-        Vector3 dir = (cameraTransform.forward * v + cameraTransform.right * h).normalized;
-        dir.y = 0;
+
+        Vector3 dir = (cameraTransform.forward * v + cameraTransform.right * h);
+        dir = Vector3.ProjectOnPlane(dir, Vector3.up).normalized;
         
         rb.linearVelocity = dir * moveSpeed;
         
