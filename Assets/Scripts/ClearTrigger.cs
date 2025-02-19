@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class ClearTrigger : MonoBehaviour
 {
-    private ClearManager clearManager;
+    private GameManager gameManager;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        if (gameManager == null)
+        {
+            Debug.LogWarning("GameManager is null");
+        }
     }
 
     // Update is called once per frame
@@ -21,7 +25,7 @@ public class ClearTrigger : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            clearManager.SetClear(true);
+            gameManager.SetClear(true);
         }
     }
 }
