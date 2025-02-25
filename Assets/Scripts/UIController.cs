@@ -6,28 +6,19 @@ using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
+    public PlayerStateManager _playerStateManager;
     public GameObject leftClickUI;
     public GameObject leftClickWhite;
     public GameObject leftClickBlack;
 
     private Coroutine curUICoroutine;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
 
     private void OnTriggerEnter(Collider other)
     {
-
         if (other.CompareTag("UIStructure"))
         {
             ShowLeftClickUI();
+            _playerStateManager.canSink = true;
         }
     }
 
@@ -37,6 +28,7 @@ public class UIController : MonoBehaviour
         {
             DisableLeftClickUI();
         }
+        _playerStateManager.canSink = false;
     }
 
     public void ShowLeftClickUI()
