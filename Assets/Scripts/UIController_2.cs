@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class UIController_2 : MonoBehaviour
 {
-    public PlayerStateManager _playerStateManager;
+    public PlayerStateManager_2 _playerStateManager;
     public GameObject leftClickUI;
     public GameObject leftClickWhite;
     public GameObject leftClickBlack;
@@ -18,7 +18,7 @@ public class UIController_2 : MonoBehaviour
         if (other.CompareTag("UIStructure"))
         {
             ShowLeftClickUI();
-            _playerStateManager.curStructureTransform = other.transform;
+            _playerStateManager.curStructureTransform = other.transform.parent.transform;
             _playerStateManager.canSink = true;
         }
     }

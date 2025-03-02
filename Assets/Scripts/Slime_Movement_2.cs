@@ -23,12 +23,14 @@ public class Slime_Movement_2 : MonoBehaviour
     private bool isGrounded;
     private Transform cameraTransform;
     private Animator animator;
+
+    public GameObject playerObject;
     
     void Start()
     {
         cc = GetComponent<CharacterController>();
         rb = GetComponentInParent<Rigidbody>();
-        animator = GetComponentInChildren<Animator>();
+        animator = playerObject.GetComponentInChildren<Animator>();
         cameraTransform = Camera.main.transform;
     }
 

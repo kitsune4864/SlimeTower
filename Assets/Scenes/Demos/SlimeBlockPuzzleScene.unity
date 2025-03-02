@@ -160,12 +160,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 2258887}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af2ea8c9837a07d4a976dfc089ff1290, type: 3}
+  m_Script: {fileID: 11500000, guid: b074ad633d2fa7c49aabe9b38d619962, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerObject: {fileID: 3445125708597381924}
+  basicController: {fileID: 1924268460}
+  cubePuzzleController: {fileID: 1690928060}
+  curStructObject: {fileID: 0}
   playerAnimator: {fileID: 1336645669114196058}
   curStructureTransform: {fileID: 0}
+  playerRb: {fileID: 3760824043856558833}
   canSink: 0
   duration: 2
   moveSpeed: 5
@@ -1335,13 +1339,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1690928061}
+  - component: {fileID: 1690928062}
   m_Layer: 0
   m_Name: CubePuzzleController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1690928061
 Transform:
   m_ObjectHideFlags: 0
@@ -1357,6 +1362,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1690928062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1690928060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ce30056d1e181048923c1474384402d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStateManager: {fileID: 2258889}
+  playerObject: {fileID: 3445125708597381924}
+  moveSpeed: 3
+  spinSpeed: 270
+  fakeCube: {fileID: 1765522059}
 --- !u!1 &1753724278
 GameObject:
   m_ObjectHideFlags: 0
@@ -1642,6 +1664,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 16.896, y: 0, z: 0}
+--- !u!1 &1765522058
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1765522059}
+  m_Layer: 0
+  m_Name: FakeCube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1765522059
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765522058}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.040138338, y: 0.04265226, z: 0.046242263}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1785183604
 GameObject:
   m_ObjectHideFlags: 0
@@ -1831,8 +1884,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 9197492819942960510}
+  m_Children: []
   m_Father: {fileID: 3760824043856558832}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &1924268463
@@ -1894,6 +1946,7 @@ MonoBehaviour:
   maxJumpForce: 200
   chargeJumpForce: 0
   isGrounded: 0
+  playerObject: {fileID: 3445125708597381924}
 --- !u!1 &2050635900
 GameObject:
   m_ObjectHideFlags: 0
@@ -2237,6 +2290,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 9197492819942960510}
   - {fileID: 1924268461}
   - {fileID: 2258888}
   - {fileID: 2112352444}
@@ -2570,7 +2624,7 @@ Transform:
   - {fileID: 5706612442893364286}
   - {fileID: 6432335076628593993}
   - {fileID: 4319514034374465021}
-  m_Father: {fileID: 1924268461}
+  m_Father: {fileID: 3760824043856558832}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -2590,3 +2644,4 @@ SceneRoots:
   - {fileID: 2098236217}
   - {fileID: 1230363845}
   - {fileID: 1027060962}
+  - {fileID: 1765522059}
