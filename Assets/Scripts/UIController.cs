@@ -18,6 +18,7 @@ public class UIController : MonoBehaviour
         if (other.CompareTag("UIStructure"))
         {
             ShowLeftClickUI();
+            _playerStateManager.curStructureTransform = other.transform;
             _playerStateManager.canSink = true;
         }
     }
