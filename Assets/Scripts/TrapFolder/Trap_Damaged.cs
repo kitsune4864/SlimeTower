@@ -12,7 +12,6 @@ public class Trap_Damaged : MonoBehaviour
     
     [SerializeField]
     private TMP_Text deathReasonText;
-    //private Slime_State sState;
     void Start()
     {
         
@@ -30,10 +29,12 @@ public class Trap_Damaged : MonoBehaviour
         {
             Slime_State sState = other.gameObject.GetComponent<Slime_State>();
             sState.SlimeDamaged(trapDamage);
-            BoxCollider bc = GetComponent<BoxCollider>();
-            bc.isTrigger = true;
+            //BoxCollider bc = GetComponent<BoxCollider>();
+            //bc.isTrigger = true;
+            //-> 필요시 전환하거나 폐기할 예정
 
             deathReasonText.text = deathReason;
+            
         }
     }
     

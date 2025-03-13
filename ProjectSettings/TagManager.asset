@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 3
   tags:
   - Structure
+  - Ground
+  - Water
+  - Whale
   layers:
   - Default
   - TransparentFX
@@ -15,8 +18,8 @@ TagManager:
   - Structure
   - Wall
   - Cave
-  - 
-  - 
+  - Whale
+  - Player
   - 
   - 
   - 

@@ -1,5 +1,12 @@
 fileFormatVersion: 2
 guid: bcdfa7b439685f94ab7d8fce5c8506f0
+AssetOrigin:
+  serializedVersion: 1
+  productId: 268636
+  packageName: Slime Cute Series
+  packageVersion: 1.0
+  assetPath: Assets/Slime Cute Series/FBX/Slime@Die.FBX
+  uploadId: 622019
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -16,8 +23,6 @@ ModelImporter:
     optimizeGameObjects: 0
     removeConstantScaleCurves: 0
     motionNodeName: 
-    rigImportErrors: 
-    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -124,8 +129,7 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 84493d13a38c0a74cb437125a3d76142,
-    type: 3}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 84493d13a38c0a74cb437125a3d76142, type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
@@ -137,10 +141,3 @@ ModelImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 268636
-  packageName: Slime Cute Series
-  packageVersion: 1.0
-  assetPath: Assets/Slime Cute Series/FBX/Slime@Die.FBX
-  uploadId: 622019
