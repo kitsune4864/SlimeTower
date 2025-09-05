@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3842783846243771128}
   - component: {fileID: 8701452937550652884}
   - component: {fileID: 4270371189433200010}
-  - component: {fileID: 6604412786681977365}
   m_Layer: 0
   m_Name: TrapPond
   m_TagString: Untagged
@@ -109,18 +108,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6604412786681977365
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1770179145848942059}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 207ff926bbca7ed4fb11e598dee6454d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trapDamage: 100
-  deathReason: "\uC0AC\uB9DD\uC0AC\uC720 : \uD30C\uC0C1\uD48D"
-  deathReasonText: {fileID: 0}

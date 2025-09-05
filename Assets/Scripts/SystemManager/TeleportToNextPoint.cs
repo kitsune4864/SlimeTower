@@ -5,18 +5,26 @@ public class TeleportToNextPoint : MonoBehaviour
 {
     [SerializeField]
     private GameObject teleportPoint;
+    [SerializeField]
     private List<GameObject> teleportPoints;
-    void Start()
-    {
-        
-    }
-
-    
-    void Update()
+    [SerializeField]
+    private int count = 0;
+   
+    void FixedUpdate()
     {
         if (Input.GetKeyDown(KeyCode.T))
         {
-            transform.position = teleportPoint.transform.position;
+            
+            if (count < teleportPoints.Count)
+            {
+                count++;
+                transform.position = teleportPoints[count].transform.position;
+            }
+            
+            if (count >= teleportPoints.Count)
+            {
+                count = 0;
+            }
         }
     }
 }

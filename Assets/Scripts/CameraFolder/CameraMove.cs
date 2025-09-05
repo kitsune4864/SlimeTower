@@ -23,10 +23,10 @@ public class CameraManager : MonoBehaviour
         float playerHeight = player.position.y;
 
         // 높이에 따른 Look Orbit Y 값 자동 조절 (보간)
-        float heightRatio = Mathf.InverseLerp(playerHeight - 1f, playerHeight + 3f, camHeight);
+        float heightRatio = Mathf.InverseLerp(playerHeight - 0.5f, playerHeight + 3f, camHeight);
         float targetLookY = Mathf.Lerp(minLookY, maxLookY, heightRatio);
 
         // Cinemachine의 Look Orbit Y 값 업데이트
         cineOrbitFollow.TargetOffset.y = targetLookY;
-    }
+    } 
 }

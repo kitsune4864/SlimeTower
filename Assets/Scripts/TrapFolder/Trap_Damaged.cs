@@ -1,26 +1,25 @@
 using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
 public class Trap_Damaged : MonoBehaviour
 {
     [SerializeField] 
-    private int trapDamage;
-
+    private float trapDamage;
+    
     [SerializeField]
-    private string deathReason;
+    private LocalizedLanguageSO localizedDeathReason;
     
     [SerializeField]
     private TMP_Text deathReasonText;
-    void Start()
-    {
-        
-    }
-
     
     void Update()
     {
-        
+        if (deathReasonText == null)
+        {
+            deathReasonText = GameObject.FindGameObjectWithTag("DamageText").GetComponent<TMP_Text>();
+        }
     }
 
     public void OnCollisionEnter(Collision other)
@@ -29,14 +28,28 @@ public class Trap_Damaged : MonoBehaviour
         {
             Slime_State sState = other.gameObject.GetComponent<Slime_State>();
             sState.SlimeDamaged(trapDamage);
-            //BoxCollider bc = GetComponent<BoxCollider>();
-            //bc.isTrigger = true;
-            //-> 필요시 전환하거나 폐기할 예정
-
-            deathReasonText.text = deathReason;
             
+            if (trapDamage >= 10 && sState.sState == SlimeState.Alive)
+            {
+                string msg = localizedDeathReason.GetLocalizedText(LocalizationManager.CurrentLanguage);
+                deathReasonText.text = msg;
+            }
+
+            if (sState.sState == SlimeState.Dead)
+            {
+                trapDamage = 0;
+            }
+        }
+        
+        if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("TrainStructure"))
+        {
+            StartCoroutine(TrapDamagedCancler());
         }
     }
-    
-    
+
+    IEnumerator TrapDamagedCancler()
+    {
+        yield return new WaitForSeconds(1f);
+        trapDamage = 0;
+    }
 }

@@ -8,6 +8,20 @@ TagManager:
   - Ground
   - Water
   - Whale
+  - Trap
+  - MangoGround
+  - Mango
+  - Platform
+  - DogOriginTransform
+  - ShortCut
+  - Cave
+  - Enemy
+  - FxTemporaire
+  - Destroyer
+  - Chess_King
+  - TrainStructure
+  - DamageText
+  - Collections
   layers:
   - Default
   - TransparentFX
@@ -20,13 +34,13 @@ TagManager:
   - Cave
   - Whale
   - Player
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Platform
+  - Ground
+  - Enemy
+  - PushThing
+  - Train
+  - Trap
+  - Collections
   - 
   - 
   - 

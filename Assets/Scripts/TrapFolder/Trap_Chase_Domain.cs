@@ -6,12 +6,15 @@ using UnityEngine;
 public class Trap_Chase_Domain : MonoBehaviour
 {
     [SerializeField]
-    private GameObject skr_Enemy;
+    private GameObject dog_Enemy;
 
     private GameObject newSkr_Enemy;
 
     [SerializeField]
-    private GameObject skr_SpawnPoint;
+    private GameObject dog_SpawnPoint;
+    
+    [SerializeField]
+    private Coroutine dogSpawn;
     
     void Start()
     {
@@ -27,23 +30,15 @@ public class Trap_Chase_Domain : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            StartCoroutine(SkrSpawn());
+            dogSpawn = StartCoroutine(DogSpawn());
         }
     }
-
-    private void OnTriggerExit(Collider other)
+    
+    private IEnumerator DogSpawn()
     {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            StopCoroutine(SkrSpawn());
-            Destroy(newSkr_Enemy);
-        }
-    }
-
-    private IEnumerator SkrSpawn()
-    {
-        Vector3 spawnPoint = skr_SpawnPoint.transform.position;
-        newSkr_Enemy = Instantiate(skr_Enemy, spawnPoint,quaternion.identity);
-        yield return null;
+        Vector3 spawnPoint = dog_SpawnPoint.transform.position;
+        newSkr_Enemy = Instantiate(dog_Enemy, spawnPoint,quaternion.identity);
+        yield return new WaitForSeconds(0.5f);
+        Destroy(gameObject);
     }
 }

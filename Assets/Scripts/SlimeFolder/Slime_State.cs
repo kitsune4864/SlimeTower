@@ -2,20 +2,36 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum SlimeState
+{
+    Alive,
+    Dead,
+}
 public class Slime_State : MonoBehaviour
 {
     [SerializeField] 
-    private int healthPoint = 10;
+    private float healthPoint = 10;
+    
+    [SerializeField]
+    private float respawnTime;
+    
     [SerializeField]
     private Slime_Movement sMovement;
+    
     private Rigidbody rb;
+    
     private Animator animator;
+    
     [SerializeField]
     private Button retryButton;
+    
+    [SerializeField]
+    public SlimeState sState;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         animator = GetComponentInChildren<Animator>();
+        sState = SlimeState.Alive;
     }
 
     
@@ -23,13 +39,8 @@ public class Slime_State : MonoBehaviour
     {
         SlimeDeath();
     }
-
-    private void SlimeSpawn()
-    {
-        //추후 스폰 기능을 넣을 부분
-    }
-
-    public void SlimeDamaged(int damage)
+    
+    public void SlimeDamaged(float damage)
     {
         healthPoint -= damage;
     }
@@ -38,21 +49,19 @@ public class Slime_State : MonoBehaviour
     {
         if (healthPoint <= 0)
         {
+            sState = SlimeState.Dead;
             sMovement.enabled = false;
             rb.constraints = RigidbodyConstraints.None;
             animator.SetTrigger("IsDeath");
-            //retryButton.gameObject.SetActive(true);
             StartCoroutine(ReloadScene());
         }
-
-        
-
     }
     
     private IEnumerator ReloadScene()
     {
-        yield return new WaitForSeconds(7f);
-        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene()
+        yield return new WaitForSeconds(respawnTime);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(
+            UnityEngine.SceneManagement.SceneManager.GetActiveScene()
             .buildIndex);
     }
 }

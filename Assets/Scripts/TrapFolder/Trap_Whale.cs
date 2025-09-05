@@ -10,19 +10,20 @@ public class Trap_Whale : MonoBehaviour
     {
         tW_A = FindObjectOfType<Trap_Whale_Attack>();
     }
-
     
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            tW_A.WhaleAttack();
+            StartCoroutine(WhaleAttackTrigger());
         }
+    }
+
+    private IEnumerator WhaleAttackTrigger()
+    {
+        tW_A.WhaleAttack();
+        yield return new WaitForFixedUpdate();
     }
     
 }

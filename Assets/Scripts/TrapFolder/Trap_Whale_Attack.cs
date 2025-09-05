@@ -11,14 +11,10 @@ public class Trap_Whale_Attack : MonoBehaviour
         whaleRb = GetComponent<Rigidbody>();
     }
     
-    void Update()
-    {
-        
-    }
 
     public void WhaleAttack()
     {
-        whaleRb.AddForce(Vector3.up * whaleSpeed, ForceMode.Impulse);
-        Debug.Log("고래 출발");
+        Vector3 direction = Vector3.up;
+        whaleRb.AddForce(direction.normalized * whaleSpeed, ForceMode.Impulse);
     }
 }

@@ -4,15 +4,11 @@ using UnityEngine;
 public class Trap_Drop_Down_CountDown : MonoBehaviour
 {
     private Rigidbody dDRb;
-    
+    [SerializeField]
+    private float countDown;
     void Start()
     {
         dDRb = GetComponent<Rigidbody>();
-    }
-    
-    void Update()
-    {
-        
     }
 
     private void OnCollisionEnter(Collision other)
@@ -21,15 +17,12 @@ public class Trap_Drop_Down_CountDown : MonoBehaviour
         {
             StartCoroutine(DropCountDown());
         }
-        else
-        {
-            Destroy(gameObject);
-        }
     }
 
     private IEnumerator DropCountDown()
     {
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(countDown);
+        dDRb.isKinematic = false;
         dDRb.useGravity = true;
         
     }

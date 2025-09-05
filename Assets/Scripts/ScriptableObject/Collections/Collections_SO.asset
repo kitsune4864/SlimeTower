@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 509ab9d665514754aa341ec34bb9c99d, type: 3}
+  m_Name: Collections_SO
+  m_EditorClassIdentifier: 
+  CollectionItems:
+  - collectionIndex: 0
+    collectionName: Broom
+    collectionPrefab: {fileID: 6282203415391070461, guid: 2b78b60059b62ef4e810cab72cea3744, type: 3}
+  - collectionIndex: 1
+    collectionName: Pot
+    collectionPrefab: {fileID: 6961362080751876618, guid: afdde3e821662c9459052788c061901d, type: 3}
+  - collectionIndex: 2
+    collectionName: Bucket
+    collectionPrefab: {fileID: 5612552532080550487, guid: 4670e457daa8a6d4081651d38f6abe79, type: 3}
+  - collectionIndex: 3
+    collectionName: Jam
+    collectionPrefab: {fileID: 7441481274402868966, guid: b1f9f4f3383401a418eede8f3a6efd32, type: 3}
+  - collectionIndex: 4
+    collectionName: Acon
+    collectionPrefab: {fileID: 1559425897480016608, guid: 8796b15143175ee42b10592b5669aa05, type: 3}
+  - collectionIndex: 5
+    collectionName: Donut
+    collectionPrefab: {fileID: 6038509419528162596, guid: 08d391a7da7df64469ed1794c3317e35, type: 3}
+  - collectionIndex: 6
+    collectionName: PotatoStick
+    collectionPrefab: {fileID: 5392546461490721246, guid: 67d821b20d0d0c545ac49945ea524fc5, type: 3}
+  - collectionIndex: 7
+    collectionName: ShotGun_Bullet
+    collectionPrefab: {fileID: 7252195021398602255, guid: b73f669c0f9be8b4aa1f6368337279c9, type: 3}
+  - collectionIndex: 8
+    collectionName: Neo_Glasses
+    collectionPrefab: {fileID: 1902553391893592497, guid: 9d0ed2f2d0a16e240b06cb8e4ddc40f3, type: 3}
+  - collectionIndex: 9
+    collectionName: Real_Goblet
+    collectionPrefab: {fileID: 759087486048558556, guid: d127522f90f37104388ce11c9f0f2213, type: 3}
+  - collectionIndex: 10
+    collectionName: Red_Tawer
+    collectionPrefab: {fileID: 8114277350137421918, guid: 5e6e39e3d5da4be4996e6c4f89af7b4e, type: 3}
+  - collectionIndex: 11
+    collectionName: BlueJam
+    collectionPrefab: {fileID: 1219988571561625118, guid: 2d9c978a9e9fca64b97bffbf64c4535d, type: 3}
